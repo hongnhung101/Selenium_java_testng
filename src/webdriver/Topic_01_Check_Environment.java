@@ -14,6 +14,7 @@ public class Topic_01_Check_Environment {
     String projectPath = System.getProperty("user.dir");
     String osName = System.getProperty("os.name");
 
+    //setup driver
     @BeforeClass
     public void beforeClass() {
         if (osName.contains("Windows")) {
