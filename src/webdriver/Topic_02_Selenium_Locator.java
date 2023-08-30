@@ -78,33 +78,7 @@ public class Topic_02_Selenium_Locator {
         driver.findElement(By.xpath("//form[@id='frmLogin']//button[text()='ĐĂNG KÝ']")).click();
         Assert.assertEquals(driver.findElement(By.id("txtCEmail-error")).getText(), "Email nhập lại không đúng");
     }
-
-    @Test
-    public void TC_04_TagName() {
-        //Count input tags
-        System.out.println(driver.findElement(By.tagName("input")).isSelected());
-    }
-
-    @Test
-    public void TC_05_LinkText() {
-
-    }
-
-    @Test
-    public void TC_06_PartialLinkText() {
-
-    }
-
-    @Test
-    public void TC_07_CSS() {
-
-    }
-
-    @Test
-    public void TC_08_XPath() {
-
-    }
-
+    
 
     @AfterClass
     public void afterClass() {
