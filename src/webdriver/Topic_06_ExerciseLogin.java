@@ -42,7 +42,7 @@ public class Topic_06_ExerciseLogin {
     @Test
     public void TC_01() {
         driver.get("http://live.techpanda.org/");
-        driver.findElement(By.xpath("//div[@class='footer']//child::a[text()='My Account']")).click();
+        driver.findElement(By.xpath("//div[@class='footer']//a[@title='My Account']")).click();
         driver.findElement(By.id("email")).clear();
         driver.findElement(By.id("pass")).clear();
         driver.findElement(By.id("send2")).click();
@@ -55,7 +55,7 @@ public class Topic_06_ExerciseLogin {
     @Test
     public void TC_02() {
         driver.get("http://live.techpanda.org/");
-        driver.findElement(By.xpath("//div[@class='footer']//child::a[text()='My Account']")).click();
+        driver.findElement(By.xpath("//div[@class='footer']//a[@title='My Account']")).click();
         driver.findElement(By.id("email")).sendKeys("123434234@12312.123123");
         driver.findElement(By.id("pass")).sendKeys("123456");
         driver.findElement(By.id("send2")).click();
@@ -66,7 +66,7 @@ public class Topic_06_ExerciseLogin {
     @Test
     public void TC_03() {
         driver.get("http://live.techpanda.org/");
-        driver.findElement(By.xpath("//div[@class='footer']//child::a[text()='My Account']")).click();
+        driver.findElement(By.xpath("//div[@class='footer']//a[@title='My Account']")).click();
         driver.findElement(By.id("email")).sendKeys("automation@gmail.com");
         driver.findElement(By.id("pass")).sendKeys("456");
         driver.findElement(By.id("send2")).click();
@@ -77,7 +77,7 @@ public class Topic_06_ExerciseLogin {
     @Test
     public void TC_04() {
         driver.get("http://live.techpanda.org/");
-        driver.findElement(By.xpath("//div[@class='footer']//child::a[text()='My Account']")).click();
+        driver.findElement(By.xpath("//div[@class='footer']//a[@title='My Account']")).click();
         driver.findElement(By.id("email")).sendKeys("automation@gmail.com");
         driver.findElement(By.id("pass")).sendKeys("123123");
         driver.findElement(By.id("send2")).click();
