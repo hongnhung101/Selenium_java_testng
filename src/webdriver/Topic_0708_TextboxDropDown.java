@@ -13,9 +13,9 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import java.time.Duration;
 import java.util.List;
 import java.util.Random;
-import java.util.concurrent.TimeUnit;
 
 public class Topic_0708_TextboxDropDown {
     WebDriver driver;
@@ -45,9 +45,9 @@ public class Topic_0708_TextboxDropDown {
         }
 
         driver = new FirefoxDriver();
-        explicitWait = new WebDriverWait(driver, 30);
+        explicitWait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
         rand = new Random();
 //        EmployeeID = String.valueOf(rand.nextInt(999999));
@@ -282,6 +282,11 @@ public class Topic_0708_TextboxDropDown {
         }
         System.out.println(DealerList.size());
     }
+//
+//    @Test
+//    public void TC_06_HTMLDropDown() {
+//        driver.get("https://applitools.com/automating-tests-chrome-devtools-recorder-webinar/");
+//    }
 
     @Test
     public void TC_07_CustomDropdown() {
@@ -317,7 +322,6 @@ public class Topic_0708_TextboxDropDown {
 
     @Test
     public void TC_08_MultipleSelect() {
-        //chưa chạy được vì đang dính cisco
         driver.get("http://multiple-select.wenzhixin.net.cn/templates/template.html?v=189&url=basic.html");
         driver.findElement(By.cssSelector("button.ms-choice")).click();
 //        SelectItemDropDown("button.ms-choice", "div.ms-parent.multiple-select.ms-parent-open div.ms-drop.bottom span", "January");
@@ -326,12 +330,9 @@ public class Topic_0708_TextboxDropDown {
         driver.findElement(By.xpath("//div[@class='ms-parent multiple-select ms-parent-open']//following-sibling::span[text()='January']")).click();
         driver.findElement(By.xpath("//div[@class='ms-parent multiple-select ms-parent-open']//following-sibling::span[text()='February']")).click();
         driver.findElement(By.xpath("//div[@class='ms-parent multiple-select ms-parent-open']//following-sibling::span[text()='March']")).click();
-        Assert.assertEquals(driver.findElement(By.cssSelector("div.ms-parent.multiple-select.ms-parent-open button.ms-choice span")).getText(), "January, February, March");
+        Assert.assertEquals(driver.findElement(By.cssSelector(".ms-parent-open button:nth-child(1) span")).getText(), "January, February, March");
         System.out.println("Show correctly <= 3item");
-        driver.findElement(By.cssSelector("div.ms-parent.multiple-select.ms-parent-open button.ms-choice span")).clear();
-        driver.findElement(By.xpath("//div[@class='ms-parent multiple-select ms-parent-open']//following-sibling::span[text()='January']")).click();
-        driver.findElement(By.xpath("//div[@class='ms-parent multiple-select ms-parent-open']//following-sibling::span[text()='February']")).click();
-        driver.findElement(By.xpath("//div[@class='ms-parent multiple-select ms-parent-open']//following-sibling::span[text()='March']")).click();
+        driver.findElement(By.cssSelector("button.ms-choice")).click();
         driver.findElement(By.xpath("//div[@class='ms-parent multiple-select ms-parent-open']//following-sibling::span[text()='April']")).click();
         driver.findElement(By.xpath("//div[@class='ms-parent multiple-select ms-parent-open']//following-sibling::span[text()='May']")).click();
         driver.findElement(By.xpath("//div[@class='ms-parent multiple-select ms-parent-open']//following-sibling::span[text()='June']")).click();
@@ -374,6 +375,7 @@ public class Topic_0708_TextboxDropDown {
 
         }
     }
+
 
     @AfterClass
     public void afterClass() {

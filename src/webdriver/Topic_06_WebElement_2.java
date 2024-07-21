@@ -228,6 +228,6 @@ public class Topic_06_WebElement_2 {
 
     @AfterClass
     public void afterClass() {
-        driver.quit();
+        //driver.quit();
     }
 }
