@@ -1,6 +1,7 @@
 package webdriver;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -107,12 +108,22 @@ public class Topic_09_HandleButton {
         driver.manage().deleteAllCookies();
         driver.navigate().refresh();
 
+        //Vi da su dung refesh nen can gan lai gia tri allcheckbox
         AllCheckbox = driver.findElements(By.xpath("//input[@type='checkbox']"));
         for (WebElement checkbox : AllCheckbox)
             if (checkbox.getAttribute("value").equals(" Heart Attack ") && !checkbox.isSelected()) {
                 checkbox.click();
                 Assert.assertTrue(checkbox.isSelected());
             }
+    }
+
+    @Test
+    public void TC_05_Custom_Radio() {
+        driver.get("https://login.ubuntu.com/");
+        By Radiobutton = By.xpath("//span[text()='I don’t have an Ubuntu One account']/preceding::input[@type='radio']");
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", driver.findElement(Radiobutton));
+
+        Assert.assertTrue(driver.findElement(Radiobutton).isSelected());
     }
 
     public void ClickCheckbox(WebElement Element) {
